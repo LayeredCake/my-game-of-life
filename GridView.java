@@ -64,6 +64,14 @@ public class GridView extends View {
                 canvas.drawRect(x * this.size, y * this.size, (x + 1) * this.size, (y + 1) * this.size, paint);
             }
         }
+        
+        updateGrid();
+        
+        try{
+            Thread.sleep(30);
+        } catch (InterruptedException e) {}
+        
+        invalidate();
     }
 
     @Override
@@ -71,4 +79,9 @@ public class GridView extends View {
         xMax = w - 1;
         yMax = h - 1;
     }
+    
+    public void updateGrid(){
+        
+    }
+    
 }
