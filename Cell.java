@@ -35,6 +35,22 @@ public class Cell {
     }
 
     /**
+     * Getter for energy attribute.
+     * @return The energy of this Cell.
+     */
+    public double getEnergy(){
+        return this.energy;
+    }
+
+    /**
+     * Setter for energy attribute.
+     * @param energy The new energy of the Cell.
+     */
+    public void setEnergy(double energy){
+        this.energy = energy;
+    }
+
+    /**
      * Determines this Cell's color, represented as an integer.
      * Cells with more energy are brighter.
      * @return The integer form of the Cell's color.
