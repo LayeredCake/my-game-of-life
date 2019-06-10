@@ -22,16 +22,6 @@ public class GridView extends View {
     Cell[][] grid;
 
     /**
-     * The width of the grid.
-     */
-    int w = 20;
-
-    /**
-     * The height of the grid
-     */
-    int h = 20;
-
-    /**
      * The size of a single Cell on the screen.
      */
     int size = 20;
@@ -46,8 +36,6 @@ public class GridView extends View {
             for(int x = 0; x < w; x++){
 
                 //Initializes each Cell in the grid.
-                grid[y][x] = new Cell((x + y) / 8.0);
-
             }
         }
     }
