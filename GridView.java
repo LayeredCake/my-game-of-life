@@ -33,15 +33,7 @@ public class GridView extends View {
      */
     int h = 34;
 
-    //0.25: fades to white
-    //0.26: fades to white
-    //0.265: fades to white
-    //0.27: fades to black
-    //0.275: fades to black
-    //0.3: fades to black
-    //0.325: fades to black
-    //0.35: checkers and lines
-    double k = 0.265;
+    float k = 0.265;
 
     /**
      * The size of a single Cell on the screen.
@@ -97,9 +89,9 @@ public class GridView extends View {
 
     public void updateGrid(){
 
-        double[][] newGrid = new double[h][w];
+        float[][] newGrid = new double[h][w];
         int neighbors;
-        double newEnergy = 0.0;
+        float newEnergy = 0.0;
 
 
         for(int y =0; y < h; y++){
