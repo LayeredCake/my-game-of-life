@@ -2,6 +2,7 @@ package com.example.mygameoflife;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.View;
 
@@ -26,17 +27,17 @@ public class GridView extends View {
     /**
      * The width of the grid.
      */
-    int w = 24;
+    int w = 40;
 
     /**
      * The height of the grid
      */
-    int h = 34;
+    int h = 40;
 
     /**
      * A constant determining how energy flows within the grid.
      */
-    float k = 0.265f;
+    float k = 0.2f;
 
     /**
      * Constant determining how much energy is added to the system.
@@ -48,7 +49,7 @@ public class GridView extends View {
     /**
      * The size of a single Cell on the screen.
      */
-    int size = 20;
+    int size = 25;
 
     public GridView(Context context){
         super(context);
@@ -112,12 +113,13 @@ public class GridView extends View {
 
     public void updateGrid(){
 
-        float[][] newGrid = new double[h][w];
+        float[][] newGrid = new float[h][w];
         int neighbors;
         float newEnergy = 0.0;
 
 
-        for(int y =0; y < h; y++){
+        //Calculates new energy for each space in the grid.
+        for(int y = 0; y < h; y++){
             for(int x = 0; x < w; x++){
 
                 if(grid[y][x] instanceof LivingCell){
@@ -161,12 +163,14 @@ public class GridView extends View {
             }
         }
 
+        //Sets energy of cell to new value.
         for(int y = 0; y < h; y++) {
             for (int x = 0; x < w; x++) {
                 grid[y][x].setEnergy(newGrid[y][x]);
             }
         }
         
+        //Updates living cells.
         for(int y = 0; y < h; y++){
             for(int x = 0; x < w; x++){
                 Cell cell = grid[y][x];
@@ -177,7 +181,7 @@ public class GridView extends View {
             }
         }
         
-        
+        //Refreshes living cells so that they can be updated next turn.
         for(int y = 0; y < h; y++){
             for(int x = 0; x < w; x++){
                 Cell cell = grid[y][x];
