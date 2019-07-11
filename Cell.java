@@ -10,7 +10,7 @@ public class Cell {
     /**
      * The amount of energy contained in this Cell.
      */
-    protected double energy;
+    protected float energy;
 
     /**
      * A scaling factor.
@@ -23,7 +23,7 @@ public class Cell {
      * Creates a new Cell with a given energy.
      * @param energy The Cell's energy.
      */
-    public Cell(double energy){
+    public Cell(float energy){
         this.energy = energy;
     }
 
@@ -38,7 +38,7 @@ public class Cell {
      * Getter for energy attribute.
      * @return The energy of this Cell.
      */
-    public double getEnergy(){
+    public float getEnergy(){
         return this.energy;
     }
 
@@ -46,7 +46,7 @@ public class Cell {
      * Setter for energy attribute.
      * @param energy The new energy of the Cell.
      */
-    public void setEnergy(double energy){
+    public void setEnergy(float energy){
         this.energy = energy;
     }
 
