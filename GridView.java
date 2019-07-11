@@ -35,6 +35,8 @@ public class GridView extends View {
 
     float k = 0.265;
 
+    Random random;
+    
     /**
      * The size of a single Cell on the screen.
      */
@@ -46,7 +48,7 @@ public class GridView extends View {
         //Creates new grid.
         grid = new Cell[h][w];
 
-        Random random = new Random();
+        random = new Random();
 
         for(int y = 0; y < h; y++){
             for(int x = 0; x < w; x++){
@@ -75,7 +77,7 @@ public class GridView extends View {
         updateGrid();
 
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e) {}
 
         invalidate();
