@@ -36,7 +36,7 @@ public class GridView extends View {
     /**
      * A constant determining how energy flows within the grid.
      */
-    float k = 0.265;
+    float k = 0.265f;
 
     /**
      * Constant determining how much energy is added to the system.
