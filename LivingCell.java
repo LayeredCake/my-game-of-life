@@ -55,21 +55,6 @@ public class LivingCell extends Cell {
     protected int color;
 
     protected Random random;
-
-    public LivingCell(float copyP, float moveP, Cell[][] grid, float health, boolean hasUpdated, int color){
-        super(0);
-        this.copyP = copyP;
-        this.moveP = moveP;
-        this.senseP = 0.1f;
-        this.attackP = 0.1f;
-        this.grid = grid;
-        this.gridH = grid.length;
-        this.gridW = grid[0].length;
-        this.health = health;
-        this.random = new Random();
-        this.hasUpdated = hasUpdated;
-        this.color = color;
-    }
     
     public LivingCell(float copyP, float moveP, float senseP, float attackP, float Cell[][]grid, float health, boolean hasUpdated, int color){
         super(0);
@@ -228,8 +213,6 @@ public class LivingCell extends Cell {
             int newColor = mutateCopy || mutateMove ? getRandomColor() : this.color;
             newColor = mutateCopy || mutateMove || mutateSense || mutateAttack ? getRandomColor : this.color;
           
-            newCell = new LivingCell (newCopyP, newMoveP, this.grid,
-                    (float) (this.health / 2.0), true, newColor);
             newCell = new LivingCell (newCopyP, newMoveP, newSenseP,
                     newAttackP, (float) (this.health / 2.0), true, newColor);
 
