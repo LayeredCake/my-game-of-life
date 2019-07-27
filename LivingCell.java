@@ -214,19 +214,19 @@ public class LivingCell extends Cell {
         return color;
     }
 
-    public int chooseRandomDirection(){
+    public int chooseRandomDirection(boolean attack){
         ArrayList<Integer> possibleDirections = new ArrayList<Integer>();
 
-        if(this.x > 0 && ! (this.grid[this.y][this.x-1] instanceof LivingCell)){
+        if(this.x > 0 && attack == (this.grid[this.y][this.x-1] instanceof LivingCell)){
             possibleDirections.add(0); //0 represents west.
         }
-        if(this.x < this.gridW - 1 && ! (this.grid[this.y][this.x+1] instanceof LivingCell)){
+        if(this.x < this.gridW - 1 && attack == (this.grid[this.y][this.x+1] instanceof LivingCell)){
             possibleDirections.add(1); //1 represents east.
         }
-        if(this.y > 0 && ! (this.grid[this.y-1][this.x] instanceof LivingCell)){
+        if(this.y > 0 && attack == (this.grid[this.y-1][this.x] instanceof LivingCell)){
             possibleDirections.add(2); //2 represents north.
         }
-        if(this.y < this.gridH - 1 && ! (this.grid[this.y+1][this.x] instanceof LivingCell)) {
+        if(this.y < this.gridH - 1 && attack == (this.grid[this.y+1][this.x] instanceof LivingCell)) {
             possibleDirections.add(3); //3 represents south.
         }
 
@@ -234,6 +234,10 @@ public class LivingCell extends Cell {
             return -1;
         }
         return possibleDirections.get(random.nextInt(possibleDirections.size()));
+    }
+    
+    public int chooseRandomDirection() {
+        return chooseRandomDirection(false);
     }
 
     @Override
