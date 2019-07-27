@@ -181,10 +181,12 @@ public class LivingCell extends Cell {
             }
 
             //Creates a copy of this cell.
-            newCell = new LivingCell(mutateCopy ? random.nextFloat() : this.copyP,
-                    mutateMove ? random.nextFloat() : this.moveP, this.grid,
-                    (float) (this.health / 2.0), true, 
-                    mutateCopy || mutateMove ? getRandomColor() : this.color);
+            float newCopyP = mutateCopy ? random.nextFloat() : this.copyP;
+            float newMoveP = mutateMove ? random.nextFloat() : this.moveP;
+            int newColor = mutateCopy || mutateMove ? getRandomColor() : this.color;
+            
+            newCell = new LivingCell (newCopyP, newMoveP, this.grid,
+                    (float) (this.health / 2.0), true, newColor);
 
 
             //Puts the new cell at the new location.
