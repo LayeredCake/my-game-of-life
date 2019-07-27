@@ -74,7 +74,14 @@ public class LivingCell extends Cell {
 
     public void update(){
         if(!this.hasUpdated) {
-            this.health -= (1 / (1 - this.copyP) + 1 / (1 - this.moveP)) * energyPerAction;
+            
+            //Calculate health lost.
+            float healthLost 0.0f;
+            healthLost += 1 / (1 - this.copyP);
+            healthLost += 1 / (1 - this.moveP);
+            healthLost *= energyPerAction;
+            
+            this.health -= healthLost;
             if(this.health <= 0.0){
                 die();
                 return;
