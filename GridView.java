@@ -69,7 +69,7 @@ public class GridView extends View {
         }
         
         //Adds one living cell to the grid.
-        LivingCell initial = new LivingCell(0.8f, 0.5f, grid, 10.0f, false, Color.GREEN);
+        LivingCell initial = new LivingCell(0.8f, 0.5f, 0.1f, 0.1f, grid, 10.0f, false, Color.GREEN);
         grid[h / 2][w / 2] = initial;
         initial.setLocation(h / 2, w / 2);
         
